@@ -1,0 +1,99 @@
+.social-media {
+  width: 100%;
+  display: flex;
+  .social-media__list {
+    list-style: none;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(122px, 1fr));
+    column-gap: 20px;
+    row-gap: 20px;
+    justify-items: center;
+    .social-media__card {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 255px;
+      height: 216px;
+      border-radius: 5px;
+      border-top: 5px solid $youtube;
+      background-color: $dark-desaturated-blue;
+      transition: all ease-in-out .2s;
+      &:hover{
+        cursor: pointer;
+        filter: brightness(1.3);
+      }
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        img {
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+        }
+        span {
+          color: $desaturated-blue;
+          font-size: $textSm;
+          font-weight: 700;
+        }
+      }
+      .card-data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $white;
+        font-size: $textXxl;
+        font-weight: 700;
+        span {
+          text-transform: uppercase;
+          letter-spacing: 5px;
+          font-size: $textXsm;
+          font-weight: 200;
+        }
+      }
+      .card-footer {
+        font-size: $textXsm;
+        color: $lime-green;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+@include mediumScreen {
+  .social-media {
+    .social-media__list {
+      column-gap: 20px;
+      row-gap: 20px;
+      .social-media__card {
+        padding: 15px;
+        width: 255px;
+        height: fit-content;
+      }
+    }
+  }
+}
+
+@include mobileScreen {
+  .social-media {
+    .social-media__list {
+      .social-media__card {
+        padding: 15px;
+        width: 150px;
+        min-height: 150px;
+        height: fit-content;
+        .card-header{
+          width: 100%;
+        }
+        .card-data {
+          font-size: $textXl;
+        }
+      }
+    }
+  }
+}

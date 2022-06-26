@@ -1,0 +1,90 @@
+// Light Theme
+
+body {
+  &.theme--light {
+    background-color: $soft-gray;
+  }
+  .split-background {
+    &.theme--light {
+      background-color: $white;
+    }
+  }
+}
+
+.header {
+  &.theme--light {
+    background-color: $soft-gray;
+  }
+  h1 {
+    &.theme--light {
+      color: $black;
+    }
+  }
+  .color-mode {
+    .color-mode__text {
+      &.theme--light {
+        color: $black;
+      }
+    }
+  }
+}
+
+.social-media{
+  .social-media__list{
+    .social-media__card{
+      &.theme--light {
+        &:hover{
+          filter: brightness(0.9);
+        }
+        background-color: $deep-gray;
+      }
+      .card-data{
+        &.theme--light {
+          color: $black;
+        }
+      }
+    }
+  }
+}
+
+.overview {
+  h2 {
+    &.theme--light {
+      color: $black;
+    }
+  }
+  .overview__list {
+    .overview__card {
+      .overview__card-group{
+        .overview__sm--card{
+          &.theme--light {
+            &:hover{
+              filter: brightness(0.9);
+            }
+            background-color: $deep-gray;
+          }
+
+          .card-footer {
+            &.theme--light {
+              color: $black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal-container{
+  .chart__header{
+    .titles  {
+      .h4 {
+        &.theme--light {
+          color: $black;
+        }
+      }
+    }
+  }
+
+
+}

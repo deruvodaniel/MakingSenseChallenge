@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/css/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="src/js/index.js"></script>
+  <script type="module" src="src/js/chart.js"></script>
+
+  <title>Social media dashboard</title>
+</head>
+<body class="theme">
+  <div class="split-background theme"></div>
+  <div class="overlay"></div>
+  <div class="container">
+    <header class="header theme">
+      <div class="title">
+        <h1 class="theme">Social Media Dashboard</h1>
+        <span>Total Followers: 23,004</span>
+      </div>
+      <div class="color-mode">
+        <span class="color-mode__text theme">Dark Mode</span>
+        <div class="color-mode__switch">
+          <div class="color-mode__switch--circle theme"></div>
+        </div>
+      </div>
+    </header>
+    <section class="social-media">
+      <ul class="social-media__list"></ul>
+    </section>
+    <section class="overview">
+      <h2 class="theme">Overview - Today</h2>
+      <ul class="overview__list"></ul>
+    </section>
+
+    <div class="modal-container theme">
+      <div class="chart__header theme">
+        <div class="chart__header-account-details theme">
+          <div class="close-button">
+            <button class="close-cart-button theme">X</button>
+          </div>
+          <div class="titles theme">
+            <h4 class="theme">Facebook followers</h4>
+            <div>
+              <img src="./src/assets/icon-facebook.svg" alt="icon-${item.id}">
+              <span class="theme">@naskdjkasdsad</span>
+            </div>
+          </div>
+        </div>
+        <div class="chart__header-account-data">
+          <div class="total theme">
+            1987
+            <span class="theme">Total Followers</span>
+          </div>
+          <div class="last-10-days">
+            <img src="./src/assets/icon-up.svg" alt="icon-up">
+            81
+            <span class="theme">New followers in the past 10 days</span>
+          </div>
+          <div class="today-data">
+            <img src="./src/assets/icon-up.svg" alt="icon-up">
+            12
+            <span class="theme">New followers TODAY</span>
+          </div>
+        </div>
+      </div>
+      <div class="chart-container theme">
+        <canvas id="chart"></canvas>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
