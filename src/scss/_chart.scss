@@ -2,7 +2,7 @@
   width: 70%;
   height: 70vh;
   display: none;
-  background-color: $very-dark-blue;
+  background-color: $very-dark-blue-top;
   position: absolute;
   top: 122px;
   left: 15%;
@@ -29,7 +29,6 @@
     }
   }
   .chart__header {
-    background-color: $very-dark-blue-top;
     border-radius: 15px 15px 0 0;
     padding: 45px 65px 0 45px;
     color: $white;
@@ -92,11 +91,12 @@
   }
 
   .chart-container {
+    background-color: $very-dark-blue;
     position: relative;
     padding: 0 65px 45px 65px;
     margin: auto;
     height: 65%;
     width: 100%;
-    border-radius: 15px 15px 0 0;
+    border-radius: 15px;
   }
 }

@@ -144,7 +144,6 @@ const toggle = document.querySelector('.color-mode__switch');
 const circle = document.querySelector('.color-mode__switch--circle')
 let dark = true;
 
-
 toggle.addEventListener('click', () => {
   themeElements.forEach((item) => {
     item.classList.toggle('theme--light');

@@ -42,14 +42,14 @@ html {
 }
 
 body {
-  background-color: $very-dark-blue-top;
+  background-color: $very-dark-blue;
   .split-background{
-    height: calc(100vh - 30%);
+    height: 30%;
     width: 100%;
     position: absolute;
-    bottom: 0;
+    top: 0;
     z-index: -1;
-    background-color: $very-dark-blue;
+    background-color: $very-dark-blue-top;
   }
   .container{
     display: flex;

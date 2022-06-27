@@ -13,14 +13,14 @@ html {
   scroll-behavior: smooth; }
 
 body {
-  background-color: #1f212e; }
+  background-color: #1e202a; }
   body .split-background {
-    height: calc(100vh - 30%);
+    height: 30%;
     width: 100%;
     position: absolute;
-    bottom: 0;
+    top: 0;
     z-index: -1;
-    background-color: #1e202a; }
+    background-color: #1f212e; }
   body .container {
     display: flex;
     flex-direction: column;
@@ -174,15 +174,17 @@ body {
       height: fit-content; } }
 
 @media screen and (max-width: 576px) {
-  .social-media .social-media__list .social-media__card {
-    padding: 15px;
-    width: 150px;
-    min-height: 150px;
-    height: fit-content; }
-    .social-media .social-media__list .social-media__card .card-header {
-      width: 100%; }
-    .social-media .social-media__list .social-media__card .card-data {
-      font-size: 24px; } }
+  .social-media .social-media__list {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+    .social-media .social-media__list .social-media__card {
+      padding: 15px;
+      width: 150px;
+      min-height: 150px;
+      height: fit-content; }
+      .social-media .social-media__list .social-media__card .card-header {
+        width: 100%; }
+      .social-media .social-media__list .social-media__card .card-data {
+        font-size: 24px; } }
 
 .overview {
   width: 100%;
@@ -281,7 +283,7 @@ body {
   width: 70%;
   height: 70vh;
   display: none;
-  background-color: #1e202a;
+  background-color: #1f212e;
   position: absolute;
   top: 122px;
   left: 15%;
@@ -305,7 +307,6 @@ body {
         cursor: pointer;
         transform: scale(1.2); }
   .modal-container .chart__header {
-    background-color: #1f212e;
     border-radius: 15px 15px 0 0;
     padding: 45px 65px 0 45px;
     color: white;
@@ -356,18 +357,19 @@ body {
       .modal-container .chart__header .chart__header-account-data > * img {
         width: 10px; }
   .modal-container .chart-container {
+    background-color: #1e202a;
     position: relative;
     padding: 0 65px 45px 65px;
     margin: auto;
     height: 65%;
     width: 100%;
-    border-radius: 15px 15px 0 0; }
+    border-radius: 15px; }
 
 body.theme--light {
-  background-color: #f5f5f5; }
+  background-color: white; }
 
 body .split-background.theme--light {
-  background-color: white; }
+  background-color: #f5f5f5; }
 
 .header.theme--light {
   background-color: #f5f5f5; }
@@ -397,5 +399,23 @@ body .split-background.theme--light {
 .overview .overview__list .overview__card .overview__card-group .overview__sm--card .card-footer.theme--light {
   color: #1B1E27; }
 
-.modal-container .chart__header .titles .h4.theme--light {
+.modal-container.theme--light {
+  background-color: #f5f5f5; }
+
+.modal-container .chart__header.theme--light {
   color: #1B1E27; }
+
+.modal-container .chart__header .chart__header-account-details .close-button .close-cart-button.theme--light {
+  color: #1B1E27; }
+
+.modal-container .chart__header .chart__header-account-details .titles .h4.theme--light {
+  color: #1B1E27; }
+
+.modal-container .chart__header .chart__header-account-data span.theme--light {
+  color: #1B1E27; }
+
+.modal-container .chart__header .chart__header-account-data > .total.theme--light {
+  color: #61636F; }
+
+.modal-container .chart-container.theme--light {
+  background-color: #F0F3FA; }

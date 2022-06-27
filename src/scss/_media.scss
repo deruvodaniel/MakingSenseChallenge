@@ -82,6 +82,7 @@
 @include mobileScreen {
   .social-media {
     .social-media__list {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       .social-media__card {
         padding: 15px;
         width: 150px;

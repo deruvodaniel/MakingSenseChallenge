@@ -2,11 +2,11 @@
 
 body {
   &.theme--light {
-    background-color: $soft-gray;
+    background-color: $white;
   }
   .split-background {
     &.theme--light {
-      background-color: $white;
+      background-color: $soft-gray;
     }
   }
 }
@@ -76,15 +76,48 @@ body {
 }
 
 .modal-container{
+  &.theme--light {
+    background-color: $soft-gray;
+  }
   .chart__header{
-    .titles  {
-      .h4 {
+    &.theme--light {
+      color: $black;
+    }
+    .chart__header-account-details {
+      .close-button {
+        .close-cart-button {
+          &.theme--light {
+            color: $black;
+          }
+        }
+      }
+      .titles {
+        .h4 {
+          &.theme--light {
+            color: $black;
+          }
+        }
+      }
+    }
+
+    .chart__header-account-data{
+      span {
         &.theme--light {
           color: $black;
         }
       }
     }
+    .chart__header-account-data > .total{
+      &.theme--light {
+        color: #61636F;
+      }
+    }
   }
 
+  .chart-container {
+    &.theme--light {
+      background-color: $deep-gray;
+    }
+  }
 
 }

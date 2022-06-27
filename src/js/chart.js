@@ -7,12 +7,17 @@ const labels = [
 const data = {
   labels: labels,
   datasets: [{
-    label: 'May 4 - May 13',
+    radius: 6,
+    hoverRadius: 7,
+    boxHeight: 40,
+    boxWidth: 225,
+    label: 'New Followes',
     backgroundColor: 'hsl(243, 51%, 70%)',
     borderColor: 'hsl(243, 51%, 70%)',
     pointBackgroundColor: 'hsl(230, 17%, 14%)',
     pointBorderColor: 'hsl(243, 51%, 70%)',
-    data: [0, 2, 4, 6, 8, 10, 12],
+    data: [3, 2, 6, 8, 9, 10, 9, 10, 12, 12],
+    tension: 0.4
   }]
 };
 
@@ -28,7 +33,7 @@ var options = {
     },
     x: {
       grid: {
-        display: false
+        display: true
       }
     }
   }
