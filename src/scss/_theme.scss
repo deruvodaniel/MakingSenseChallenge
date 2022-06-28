@@ -115,6 +115,11 @@ body {
   }
 
   .chart-container {
+    span {
+      &.theme--light {
+        background-color: $deep-gray;
+      }
+    }
     &.theme--light {
       background-color: $deep-gray;
     }

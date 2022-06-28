@@ -365,6 +365,29 @@ body {
     width: 100%;
     border-radius: 15px; }
 
+@media screen and (max-width: 992px) {
+  .modal-container .chart__header {
+    padding: 25px 25px 0 25px; }
+    .modal-container .chart__header .chart__header-account-data {
+      align-items: start;
+      justify-content: space-around; }
+    .modal-container .chart__header .chart__header-account-data > * {
+      width: 30%;
+      margin: 0; }
+  .modal-container .chart-container {
+    padding: 0 25px 35px 25px; } }
+
+@media screen and (max-width: 576px) {
+  .modal-container .chart__header {
+    padding: 25px 25px 0 25px; }
+    .modal-container .chart__header .chart__header-account-data {
+      flex-direction: column; }
+    .modal-container .chart__header .chart__header-account-data > * {
+      width: 100%;
+      margin: 0; }
+  .modal-container .chart-container {
+    padding: 0 25px 35px 25px; } }
+
 body.theme--light {
   background-color: white; }
 
@@ -416,6 +439,9 @@ body .split-background.theme--light {
 
 .modal-container .chart__header .chart__header-account-data > .total.theme--light {
   color: #61636F; }
+
+.modal-container .chart-container span.theme--light {
+  background-color: #F0F3FA; }
 
 .modal-container .chart-container.theme--light {
   background-color: #F0F3FA; }

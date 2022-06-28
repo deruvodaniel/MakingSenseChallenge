@@ -1,3 +1,4 @@
+
 const socialMediaData = [
   {
     id: "facebook",
@@ -65,6 +66,9 @@ const socialMediaData = [
   }
 ]
 
+const stringifiedData = JSON.stringify(socialMediaData);
+
+localStorage.setItem('data', stringifiedData);
 
 // Create - accounts Cards
 
@@ -73,7 +77,7 @@ const mediaParentEl = document.querySelector('.social-media__list');
 mediaParentEl.innerHTML = socialMediaData.map(item => {
 
   const card = `
-    <li class="social-media__card theme">
+    <li class="social-media__card theme" id="${item.id}">
       <div class="card-header">
         <img src="./src/assets/icon-${item.id}.svg" alt="icon-${item.id}">
         <span>${item.account}</span>
@@ -150,6 +154,7 @@ toggle.addEventListener('click', () => {
   });
   //themeElement.classList.toggle('theme--light');
   dark = !dark;
+  localStorage.setItem(`darkMode`, `${dark}`)
   if (!dark) {
     circle.style.transform = 'translateX(20px)'
     circle.style.backgroundColor = '#fff'

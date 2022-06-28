@@ -100,3 +100,42 @@
     border-radius: 15px;
   }
 }
+
+@include mediumScreen {
+  .modal-container{
+    .chart__header{
+      padding: 25px 25px 0 25px;
+      .chart__header-account-data {
+        align-items: start;
+        justify-content: space-around;
+
+      }
+      .chart__header-account-data > *{
+        width: 30%;
+        margin: 0;
+      }
+    }
+    .chart-container{
+      padding: 0 25px 35px 25px;
+    }
+  }
+}
+
+@include mobileScreen {
+  .modal-container{
+    .chart__header{
+      padding: 25px 25px 0 25px;
+      .chart__header-account-data {
+        flex-direction: column;
+      }
+      .chart__header-account-data > *{
+        width: 100%;
+        margin: 0;
+      }
+    }
+
+    .chart-container{
+      padding: 0 25px 35px 25px;
+    }
+  }
+}
