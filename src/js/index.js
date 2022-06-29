@@ -182,15 +182,17 @@ parentElement.addEventListener('click', (e) => {
 
   // Create Modal Chart/Container
   const result = socialMediaData.filter(item => item.id === btn.id);
+  const AccountsDetails = '.chart__header--account-details';
+  const AccountsData = '.chart__header--account-data';
 
-  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-details.theme > div.chart__header--titles.theme > h4").textContent = `${result[0].id} followers`
-  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-details.theme > div.chart__header--titles.theme > div > img").src = `./src/assets/icon-${result[0].id}.svg`
-  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-details.theme > div.chart__header--titles.theme > div > span").textContent = `${result[0].account}`
-  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-data.theme > div.chart__header--total.theme > div > h4").textContent = `${result[0].followers}`
-  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-data.theme > div.chart__header--last-10-days.theme > div > h4").textContent = `${result[0].followersLastTenDays}`
-  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-data.theme > div.chart__header--today-data.theme > div > h4").textContent = `${result[0].today}`
-  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-data.theme > div.chart__header--today-data.theme > div > img").src = `./src/assets/icon-${result[0].icon}.svg`
-  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-data.theme > div.chart__header--today-data.theme > div > h4").classList.add(`${result[0].icon}`)
+  document.querySelector(`${AccountsDetails} > div.chart__header--titles> h4`).textContent = `${result[0].id} followers`
+  document.querySelector(`${AccountsDetails} > div.chart__header--titles> div > img`).src = `./src/assets/icon-${result[0].id}.svg`
+  document.querySelector(`${AccountsDetails} > div.chart__header--titles> div > span`).textContent = `${result[0].account}`
+  document.querySelector(`${AccountsData}> div.chart__header--total> div > h4`).textContent = `${result[0].followers}`
+  document.querySelector(`${AccountsData}> div.chart__header--last-10-days> div > h4`).textContent = `${result[0].followersLastTenDays}`
+  document.querySelector(`${AccountsData}> div.chart__header--today-data> div > h4`).textContent = `${result[0].today}`
+  document.querySelector(`${AccountsData}> div.chart__header--today-data> div > img`).src = `./src/assets/icon-${result[0].icon}.svg`
+  document.querySelector(`${AccountsData}> div.chart__header--today-data> div > h4`).classList.add(`${result[0].icon}`)
 });
 
 // Close modal
