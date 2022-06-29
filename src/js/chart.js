@@ -20,7 +20,6 @@ const data = {
     boxWidth: 225,
     label: 'New Followers',
     backgroundColor: 'hsl(243, 51%, 70%)',
-    borderColor: 'hsl(243, 51%, 70%)',
     pointBackgroundColor: `${dotColor}`,
     pointBorderColor: 'hsl(243, 51%, 70%)',
     data: [4, 3, 2, 6, 8, 9, 10, 9, 10, 12, 12],
@@ -31,11 +30,7 @@ const data = {
 var options = {
   plugins: {
     tooltip: {
-      backgroundColor: `${dotColor}`,
-      borderColor: 'hsl(243, 51%, 70%)',
-      borderColor: 'rgb(0, 0, 255)',
-      borderRadius: 0,
-      labelTextColor: 'red'
+      backgroundColor: `${!dotColor}`,
     },
     legend: {
       display: false,
