@@ -36,12 +36,14 @@ body {
     display: none; }
 
 @media screen and (max-width: 992px) {
+  body .split-background {
+    height: 15%; }
   body .container {
     padding: 0 80px; } }
 
 @media screen and (max-width: 576px) {
   body .container {
-    padding: 0 20px; } }
+    padding: 0 40px 40px 40px; } }
 
 ::-webkit-scrollbar {
   width: 6px;
@@ -96,13 +98,16 @@ body {
         background-color: #252a41;
         border-radius: 100%;
         transition: all ease-in-out .2s; }
+      .header .color-mode .color-mode__switch.active .color-mode__switch--circle {
+        transform: translateX(20px);
+        background-color: white; }
       .header .color-mode .color-mode__switch:hover {
         cursor: pointer;
         filter: brightness(1.3); }
 
 @media screen and (max-width: 576px) {
   .header {
-    padding: 20px 0; }
+    padding: 40px 0; }
     .header .title h1 {
       font-size: 18px;
       margin-bottom: 7px; } }
@@ -110,11 +115,14 @@ body {
 .social-media {
   width: 100%;
   display: flex; }
+  .social-media input {
+    display: none; }
   .social-media .social-media__list {
     list-style: none;
     width: 100%;
+    height: fit-content;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
     grid-template-rows: repeat(auto-fit, minmax(122px, 1fr));
     column-gap: 20px;
     row-gap: 20px;
@@ -125,10 +133,9 @@ body {
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      width: 255px;
+      width: 100%;
       height: 216px;
       border-radius: 5px;
-      border-top: 5px solid #c4032a;
       background-color: #252a41;
       transition: all ease-in-out .2s; }
       .social-media .social-media__list .social-media__card:hover {
@@ -163,24 +170,26 @@ body {
         font-size: 10px;
         color: #1db489;
         font-weight: 700; }
+        .social-media .social-media__list .social-media__card .card-footer.down {
+          color: #c4032a; }
 
 @media screen and (max-width: 992px) {
   .social-media .social-media__list {
-    column-gap: 20px;
-    row-gap: 20px; }
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    column-gap: 10px;
+    row-gap: 10px; }
     .social-media .social-media__list .social-media__card {
       padding: 15px;
-      width: 255px;
+      width: 100%;
       height: fit-content; } }
 
 @media screen and (max-width: 576px) {
   .social-media .social-media__list {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); }
     .social-media .social-media__list .social-media__card {
-      padding: 15px;
-      width: 150px;
-      min-height: 150px;
-      height: fit-content; }
+      padding: 10px;
+      width: 100%;
+      min-height: 120px; }
       .social-media .social-media__list .social-media__card .card-header {
         width: 100%; }
       .social-media .social-media__list .social-media__card .card-data {
@@ -199,17 +208,20 @@ body {
     list-style: none;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(122px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(20%, 1fr));
+    column-gap: 20px;
+    row-gap: 20px;
     align-items: center; }
     .overview .overview__list .overview__card .overview__card-group {
       list-style: none;
       display: grid;
       justify-items: center;
-      grid-template-columns: repeat(auto-fit, minmax(255px, 2fr)); }
+      grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+      row-gap: 20px;
+      column-gap: 20px; }
       .overview .overview__list .overview__card .overview__card-group .overview__sm--card {
-        margin: 20px 0;
-        width: 255px;
+        width: 100%;
         height: 122px;
         padding: 25px;
         display: flex;
@@ -258,44 +270,49 @@ body {
             font-size: 10px;
             color: #1db489;
             font-weight: 700; }
+          .overview .overview__list .overview__card .overview__card-group .overview__sm--card .card-footer .card-footer__percentage.down img {
+            fill: #c4032a; }
+          .overview .overview__list .overview__card .overview__card-group .overview__sm--card .card-footer .card-footer__percentage.down span {
+            color: #c4032a; }
+
+@media screen and (max-width: 992px) {
+  .overview .overview__list {
+    grid-template-columns: repeat(auto-fit, minmax(40%, 2fr));
+    grid-template-rows: repeat(auto-fit, minmax(50%, 1fr));
+    row-gap: 10px;
+    column-gap: 10px; }
+    .overview .overview__list .overview__card .overview__card-group {
+      column-gap: 10px;
+      row-gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(100%, 2fr)); } }
 
 @media screen and (max-width: 576px) {
   .overview .overview__list {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr)); }
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(50%, 1fr)); }
     .overview .overview__list .overview__card .overview__card-group {
-      list-style: none;
-      display: grid;
-      justify-items: center;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 2fr)); }
+      grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); }
       .overview .overview__list .overview__card .overview__card-group .overview__sm--card {
         padding: 15px;
-        margin: 10px;
-        width: 150px;
-        min-height: 60px;
-        height: fit-content; }
-        .overview .overview__list .overview__card .overview__card-group .overview__sm--card .card-header {
-          width: 100%; }
-        .overview .overview__list .overview__card .overview__card-group .overview__sm--card .card-data {
-          font-size: 24px; } }
+        height: fit-content; } }
 
 .modal-container {
-  width: 70%;
-  height: 70vh;
+  width: 80%;
+  height: 50vh;
   display: none;
   background-color: #1f212e;
   position: absolute;
   top: 122px;
-  left: 15%;
+  left: 10%;
   border-radius: 15px;
   transition: all ease-in-out 0.2s; }
-  .modal-container .close-button {
+  .modal-container .chart__header--close-button {
     position: absolute;
     top: 0;
     right: 0;
     border-radius: 100%;
     margin: 20px; }
-    .modal-container .close-button button {
+    .modal-container .chart__header--close-button button {
       color: white;
       background: none;
       border: none;
@@ -303,90 +320,97 @@ body {
       font-weight: 700;
       border-radius: 100%;
       padding: 10px; }
-      .modal-container .close-button button:hover {
+      .modal-container .chart__header--close-button button:hover {
         cursor: pointer;
         transform: scale(1.2); }
   .modal-container .chart__header {
+    text-transform: capitalize;
     border-radius: 15px 15px 0 0;
     padding: 45px 65px 0 45px;
     color: white;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: fit-content; }
-    .modal-container .chart__header .titles {
+    width: 100%; }
+    .modal-container .chart__header .chart__header--titles {
       display: flex;
       flex-direction: column;
       height: 50%;
       margin-bottom: 40px; }
-      .modal-container .chart__header .titles h4 {
+      .modal-container .chart__header .chart__header--titles h4 {
         font-size: 24px;
         margin-bottom: 20px; }
-      .modal-container .chart__header .titles div {
+      .modal-container .chart__header .chart__header--titles div {
         display: flex; }
-        .modal-container .chart__header .titles div img {
+        .modal-container .chart__header .chart__header--titles div img {
           width: 20px;
           height: 20px;
           margin-right: 10px; }
-        .modal-container .chart__header .titles div span {
+        .modal-container .chart__header .chart__header--titles div span {
           font-size: 14px;
           color: #8b97c6;
           font-weight: 700; }
-    .modal-container .chart__header .chart__header-account-data {
+    .modal-container .chart__header .chart__header--account-data {
       color: #1db489;
       display: flex;
-      font-size: 30px;
+      font-size: 32px;
       font-weight: 700;
       margin-bottom: 30px; }
-      .modal-container .chart__header .chart__header-account-data span {
+      .modal-container .chart__header .chart__header--account-data span {
         color: white;
-        font-size: 10px;
+        font-size: 14px;
         font-weight: 400;
-        height: 100%;
-        width: 120px;
-        margin-left: 10px; }
-    .modal-container .chart__header .chart__header-account-data > .total {
-      color: white; }
-    .modal-container .chart__header .chart__header-account-data > * {
-      margin-right: 40px;
+        margin-left: 20px; }
+    .modal-container .chart__header .chart__header--account-data > .chart__header--total {
+      color: white;
+      font-size: 32px; }
+    .modal-container .chart__header .chart__header--account-data > .chart__header--total {
+      color: white;
+      font-size: 32px; }
+    .modal-container .chart__header .chart__header--account-data > * {
+      margin-right: 30px;
       display: flex;
-      align-items: center;
-      justify-content: space-around;
-      height: 100%;
-      width: 20%; }
-      .modal-container .chart__header .chart__header-account-data > * img {
-        width: 10px; }
-  .modal-container .chart-container {
+      align-items: center; }
+      .modal-container .chart__header .chart__header--account-data > * img {
+        width: 10px;
+        height: auto; }
+      .modal-container .chart__header .chart__header--account-data > * .data {
+        display: flex;
+        align-items: center; }
+        .modal-container .chart__header .chart__header--account-data > * .data h4.down {
+          color: #c4032a; }
+  .modal-container .chart__container {
     background-color: #1e202a;
     position: relative;
-    padding: 0 65px 45px 65px;
+    padding: 20px 50px 50px 50px;
     margin: auto;
     height: 65%;
     width: 100%;
     border-radius: 15px; }
+    .modal-container .chart__container span {
+      color: #8b97c6;
+      font-size: 18px; }
+    .modal-container .chart__container canvas {
+      margin-top: 20px; }
 
 @media screen and (max-width: 992px) {
   .modal-container .chart__header {
     padding: 25px 25px 0 25px; }
-    .modal-container .chart__header .chart__header-account-data {
-      align-items: start;
-      justify-content: space-around; }
-    .modal-container .chart__header .chart__header-account-data > * {
-      width: 30%;
+    .modal-container .chart__header .chart__header--account-data {
+      flex-direction: column; }
+    .modal-container .chart__header .chart__header--account-data > * {
       margin: 0; }
-  .modal-container .chart-container {
-    padding: 0 25px 35px 25px; } }
+      .modal-container .chart__header .chart__header--account-data > * .data {
+        min-width: 100px; } }
 
 @media screen and (max-width: 576px) {
   .modal-container .chart__header {
     padding: 25px 25px 0 25px; }
-    .modal-container .chart__header .chart__header-account-data {
-      flex-direction: column; }
-    .modal-container .chart__header .chart__header-account-data > * {
+    .modal-container .chart__header .chart__header--account-data > * {
       width: 100%;
+      justify-content: start;
       margin: 0; }
   .modal-container .chart-container {
-    padding: 0 25px 35px 25px; } }
+    padding: 35px; } }
 
 body.theme--light {
   background-color: white; }
@@ -428,20 +452,23 @@ body .split-background.theme--light {
 .modal-container .chart__header.theme--light {
   color: #1B1E27; }
 
-.modal-container .chart__header .chart__header-account-details .close-button .close-cart-button.theme--light {
+.modal-container .chart__header .chart__header--account-details .chart__header--close-button .close-cart-button.theme--light {
   color: #1B1E27; }
 
-.modal-container .chart__header .chart__header-account-details .titles .h4.theme--light {
+.modal-container .chart__header .chart__header--account-details .chart__header--titles .h4.theme--light {
   color: #1B1E27; }
 
-.modal-container .chart__header .chart__header-account-data span.theme--light {
+.modal-container .chart__header .chart__header--account-data > * span.theme--light {
   color: #1B1E27; }
 
-.modal-container .chart__header .chart__header-account-data > .total.theme--light {
+.modal-container .chart__header .chart__header--account-data > * .data h4.theme--light {
+  color: #1B1E27; }
+
+.modal-container .chart__header .chart__header--account-data > .chart__header--total.theme--light {
   color: #61636F; }
 
-.modal-container .chart-container span.theme--light {
+.modal-container .chart__container span.theme--light {
   background-color: #F0F3FA; }
 
-.modal-container .chart-container.theme--light {
+.modal-container .chart__container.theme--light {
   background-color: #F0F3FA; }

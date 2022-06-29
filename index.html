@@ -38,9 +38,47 @@
       <h2 class="theme">Overview - Today</h2>
       <ul class="overview__list"></ul>
     </section>
-
     <div class="modal-container theme">
-      
+      <div class="chart__header theme">
+        <div class="chart__header--account-details theme">
+          <div class="chart__header--close-button theme">
+            <button class="close-cart-button theme">X</button>
+          </div>
+          <div class="chart__header--titles theme">
+            <h4 class="theme">${result[0].id} followers</h4>
+            <div>
+              <img src="">
+              <span class="theme">${result[0].account}</span>
+            </div>
+          </div>
+        </div>
+        <div class="chart__header--account-data theme">
+          <div class="chart__header--total theme">
+            <div class="data theme">
+              <h4></h4>
+            </div>
+            <span class="theme">Total Followers</span>
+          </div>
+          <div class="chart__header--last-10-days theme">
+            <div class="data theme">
+              <img src="./src/assets/icon-up.svg" alt="icon-up">
+              <h4></h4>
+            </div>
+            <span class="theme">New followers in the past 10 days</span>
+          </div>
+          <div class="chart__header--today-data theme">
+          <div class="data">
+            <img src="./src/assets/icon-up.svg" alt="icon-up">
+            <h4></h4>
+          </div>
+            <span class="theme">New followers TODAY</span>
+          </div>
+        </div>
+      </div>
+      <div class="chart__container theme">
+        <span class="theme">May 4 - May 13</span>
+        <canvas id="chart"></canvas>
+      </div>
     </div>
   </div>
 </body>

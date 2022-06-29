@@ -6,14 +6,17 @@ const socialMediaData = [
     followers: 1987,
     today: 12,
     followersLastTenDays: 81,
+    icon: 'up',
     overview: {
       id: 'Pages Views',
       cant: 87,
-      percentage: 3
+      percentage: 3,
+      icon: 'up'
     },
     likes: {
       cant: 52,
-      percentage: 2
+      percentage: 2,
+      icon: 'down'
     }
   },
   {
@@ -22,14 +25,17 @@ const socialMediaData = [
     followers: 1044,
     today: 99,
     followersLastTenDays: 158,
+    icon: 'up',
     overview: {
       id: 'Retweets',
       cant: 117,
-      percentage: 303
+      percentage: 303,
+      icon: 'up'
     },
     likes: {
       cant: 507,
-      percentage: 553
+      percentage: 553,
+      icon: 'up'
     }
   },
   {
@@ -38,14 +44,17 @@ const socialMediaData = [
     followers: '11k',
     today: 1099,
     followersLastTenDays: 8501,
+    icon: 'up',
     overview: {
       id: 'Profile Views',
       cant: '52k',
-      percentage: 1375
+      percentage: 1375,
+      icon: 'up'
     },
     likes: {
       cant: 5462,
-      percentage: 2257
+      percentage: 2257,
+      icon: 'up'
     }
   },
   {
@@ -54,30 +63,46 @@ const socialMediaData = [
     followers: '8239',
     today: 144,
     followersLastTenDays: 1881,
+    icon: 'down',
     likes: {
       cant: 107,
-      percentage: 19
+      percentage: 19,
+      icon: 'down'
     },
     overview: {
       id: 'Total Views',
       cant: 1407,
-      percentage: 12
+      percentage: 12,
+      icon: 'down'
     }
   }
 ]
 
-const stringifiedData = JSON.stringify(socialMediaData);
-
-localStorage.setItem('data', stringifiedData);
 
 // Create - accounts Cards
-
 const mediaParentEl = document.querySelector('.social-media__list');
 
 mediaParentEl.innerHTML = socialMediaData.map(item => {
+  // Border Color for Cards
+  let color;
+
+  switch (item.id) {
+    case 'facebook':
+      color = 'hsl(195, 100%, 50%)';
+      break;
+    case 'twitter':
+      color = 'hsl(203, 89%, 53%)';
+      break;
+    case 'instagram':
+      color = 'hsl(329, 70%, 58%)';
+      break;
+    case 'youtube':
+      color = 'hsl(348, 97%, 39%)';
+      break;
+  }
 
   const card = `
-    <li class="social-media__card theme" id="${item.id}">
+    <li class="social-media__card theme" id="${item.id}" style="border-top: 5px solid ${color};">
       <div class="card-header">
         <img src="./src/assets/icon-${item.id}.svg" alt="icon-${item.id}">
         <span>${item.account}</span>
@@ -88,8 +113,8 @@ mediaParentEl.innerHTML = socialMediaData.map(item => {
         <span>followers</span>            
       </div>
 
-      <div class="card-footer">
-        <img src="./src/assets/icon-up.svg" alt="icon-up">
+      <div class="card-footer ${item.overview.icon}">
+        <img src="./src/assets/icon-${item.icon}.svg" alt="icon-up">
         ${item.today}
         Today
       </div>
@@ -114,8 +139,8 @@ overviewParentEl.innerHTML = socialMediaData.map(item => {
 
           <div class="card-footer theme">
             <p>${item.overview.cant}</p>
-            <div class="card-footer__percentage">
-              <img src="./src/assets/icon-up.svg" alt="icon-up">
+            <div class="card-footer__percentage ${item.overview.icon}">
+              <img src="./src/assets/icon-${item.overview.icon}.svg" alt="icon-up">
               <span>${item.overview.percentage}%</span>
             </div>
           </div>
@@ -129,8 +154,8 @@ overviewParentEl.innerHTML = socialMediaData.map(item => {
 
           <div class="card-footer theme">
             <p>${item.likes.cant}</p>
-            <div class="card-footer__percentage">
-              <img src="./src/assets/icon-up.svg" alt="icon-up">
+            <div class="card-footer__percentage ${item.likes.icon}">
+              <img src="./src/assets/icon-${item.likes.icon}.svg" alt="icon-up">
               <span>${item.likes.percentage}%</span>
             </div>
           </div>
@@ -141,25 +166,83 @@ overviewParentEl.innerHTML = socialMediaData.map(item => {
   return card;
 }).join('');
 
+
+// Show/Hide modal
+
+const parentElement = document.querySelector('.social-media__list');
+const chartModal = document.querySelector('.modal-container');
+const overlay = document.querySelector('.overlay');
+
+// Show Modal
+parentElement.addEventListener('click', (e) => {
+  const btn = e.target.closest('.social-media__card');
+  if (!btn) return
+  chartModal.style.display = 'block'
+  overlay.style.display = 'block'
+
+  // Create Modal Chart/Container
+  const result = socialMediaData.filter(item => item.id === btn.id);
+
+  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-details.theme > div.chart__header--titles.theme > h4").textContent = `${result[0].id} followers`
+  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-details.theme > div.chart__header--titles.theme > div > img").src = `./src/assets/icon-${result[0].id}.svg`
+  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-details.theme > div.chart__header--titles.theme > div > span").textContent = `${result[0].account}`
+  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-data.theme > div.chart__header--total.theme > div > h4").textContent = `${result[0].followers}`
+  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-data.theme > div.chart__header--last-10-days.theme > div > h4").textContent = `${result[0].followersLastTenDays}`
+  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-data.theme > div.chart__header--today-data.theme > div > h4").textContent = `${result[0].today}`
+  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-data.theme > div.chart__header--today-data.theme > div > img").src = `./src/assets/icon-${result[0].icon}.svg`
+  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-data.theme > div.chart__header--today-data.theme > div > h4").classList.add(`${result[0].icon}`)
+});
+
+// Close modal
+chartModal.addEventListener('click', (e) => {
+  const btn = e.target.closest('.close-cart-button');
+  if (!btn) return
+  overlay.style.display = 'none'
+  chartModal.style.display = 'none'
+  document.querySelector("body > div.container > div > div.chart__header.theme > div.chart__header--account-data.theme > div.chart__header--today-data.theme > div > h4").classList.remove(`down`)
+});
+
 // Dark/Light theme
 
 const themeElements = document.querySelectorAll('.theme');
 const toggle = document.querySelector('.color-mode__switch');
-const circle = document.querySelector('.color-mode__switch--circle')
-let dark = true;
+const circle = document.querySelector('.color-mode__switch--circle');
+let darkMode = true;
 
-toggle.addEventListener('click', () => {
-  themeElements.forEach((item) => {
-    item.classList.toggle('theme--light');
-  });
-  //themeElement.classList.toggle('theme--light');
-  dark = !dark;
-  localStorage.setItem(`darkMode`, `${dark}`)
-  if (!dark) {
-    circle.style.transform = 'translateX(20px)'
-    circle.style.backgroundColor = '#fff'
+toggle.addEventListener('click', (e) => {
+  e.preventDefault()
+  e.stopPropagation()
+  toggle.classList.toggle('active')
+  darkMode = !darkMode;
+
+  if (!darkMode) {
+    localStorage.setItem('dark-mode', 'false');
+    document.querySelector("body > div.container > header > div.color-mode > span").textContent = 'Light Mode'
+    themeElements.forEach((item) => {
+      item.classList.add('theme--light');
+    });
+    toggle.classList.add('active')
   } else {
-    circle.style.transform = 'translateX(0px)'
-    circle.style.backgroundColor = '#252a41'
+    localStorage.setItem('dark-mode', 'true');
+    document.querySelector("body > div.container > header > div.color-mode > span").textContent = 'Dark Mode'
+    themeElements.forEach((item) => {
+      item.classList.remove('theme--light');
+    });
+    toggle.classList.remove('active')
   }
-})
+});
+
+if (localStorage.getItem('dark-mode') === 'false') {
+  document.querySelector("body > div.container > header > div.color-mode > span").textContent = 'Light Mode'
+  themeElements.forEach((item) => {
+    item.classList.add('theme--light');
+  });
+  toggle.classList.add('active')
+} else {
+  document.querySelector("body > div.container > header > div.color-mode > span").textContent = 'Dark Mode'
+  themeElements.forEach((item) => {
+    item.classList.remove('theme--light');
+  });
+  toggle.classList.remove('active')
+}
+

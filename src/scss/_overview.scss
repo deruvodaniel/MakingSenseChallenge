@@ -12,18 +12,21 @@
     list-style: none;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(122px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(20%, 1fr));
+    column-gap: 20px;
+    row-gap: 20px;
     align-items: center;
     .overview__card {
       .overview__card-group{
         list-style: none;
         display: grid;
         justify-items: center;
-        grid-template-columns: repeat(auto-fit, minmax(255px, 2fr));
+        grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+        row-gap: 20px;
+        column-gap: 20px;
         .overview__sm--card{
-          margin: 20px 0;
-          width: 255px;
+          width: 100%;
           height: 122px;
           padding: 25px;
           display: flex;
@@ -79,7 +82,35 @@
               color: $lime-green;
               font-weight: 700;
             }
+            .card-footer__percentage{
+              &.down {
+                img {
+                  fill: $youtube;
+                }
+                span {
+                  color: $youtube;
+                }
+              }
+            }
           }
+        }
+      }
+    }
+  }
+}
+
+@include mediumScreen {
+  .overview {
+    .overview__list {
+      grid-template-columns: repeat(auto-fit, minmax(40%, 2fr));
+      grid-template-rows: repeat(auto-fit, minmax(50%, 1fr));
+      row-gap: 10px;
+      column-gap: 10px;
+      .overview__card {
+        .overview__card-group{
+          column-gap: 10px;
+          row-gap: 10px;
+          grid-template-columns: repeat(auto-fit, minmax(100%, 2fr));
         }
       }
     }
@@ -89,26 +120,14 @@
 @include mobileScreen {
   .overview {
     .overview__list {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+      grid-template-rows: repeat(auto-fit, minmax(50%, 1fr));
       .overview__card {
         .overview__card-group{
-          list-style: none;
-          display: grid;
-          justify-items: center;
-          grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
+          grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
           .overview__sm--card {
             padding: 15px;
-            margin: 10px;
-            width: 150px;
-            min-height: 60px;
             height: fit-content;
-            .card-header{
-              width: 100%;
-            }
-            .card-data {
-              font-size: $textXl;
-            }
           }
         }
       }

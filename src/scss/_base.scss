@@ -70,6 +70,9 @@ body {
 
 @include mediumScreen {
   body {
+    .split-background{
+      height: 15%;
+    }
     .container{
       padding: 0 80px;
     }
@@ -79,7 +82,7 @@ body {
 @include mobileScreen {
   body {
     .container{
-      padding: 0 20px;
+      padding: 0 40px 40px 40px;
     }
   }
 }

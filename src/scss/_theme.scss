@@ -83,15 +83,15 @@ body {
     &.theme--light {
       color: $black;
     }
-    .chart__header-account-details {
-      .close-button {
+    .chart__header--account-details {
+      .chart__header--close-button  {
         .close-cart-button {
           &.theme--light {
             color: $black;
           }
         }
       }
-      .titles {
+      .chart__header--titles {
         .h4 {
           &.theme--light {
             color: $black;
@@ -100,21 +100,28 @@ body {
       }
     }
 
-    .chart__header-account-data{
+    .chart__header--account-data > * {
       span {
         &.theme--light {
           color: $black;
         }
       }
+      .data {
+        h4 {
+          &.theme--light {
+            color: $black;
+          }
+        }
+      }
     }
-    .chart__header-account-data > .total{
+    .chart__header--account-data > .chart__header--total{
       &.theme--light {
         color: #61636F;
       }
     }
   }
 
-  .chart-container {
+  .chart__container {
     span {
       &.theme--light {
         background-color: $deep-gray;

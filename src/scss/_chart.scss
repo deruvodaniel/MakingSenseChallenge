@@ -1,14 +1,14 @@
 .modal-container{
-  width: 70%;
-  height: 70vh;
+  width: 80%;
+  height: 50vh;
   display: none;
   background-color: $very-dark-blue-top;
   position: absolute;
   top: 122px;
-  left: 15%;
+  left: 10%;
   border-radius: 15px;
   transition: all ease-in-out 0.2s;
-  .close-button {
+  .chart__header--close-button {
     position: absolute;
     top: 0;
     right: 0;
@@ -29,14 +29,14 @@
     }
   }
   .chart__header {
+    text-transform: capitalize;
     border-radius: 15px 15px 0 0;
     padding: 45px 65px 0 45px;
     color: $white;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: fit-content;
-    .titles{
+    width: 100%;    
+    .chart__header--titles{
       display: flex;
       flex-direction: column;
       height: 50%;
@@ -59,7 +59,7 @@
         }
       }
     }
-    .chart__header-account-data{
+    .chart__header--account-data{
       color: $lime-green;
       display: flex;
       font-size: $textXxl-chart;
@@ -67,37 +67,55 @@
       margin-bottom: 30px;
       span {
         color: $white;
-        font-size: $textXsm;
+        font-size: $textSm;
         font-weight: 400;
-        height: 100%;
-        width: 120px;
-        margin-left: 10px;
+        margin-left: 20px;
       }
     }
-    .chart__header-account-data > .total{
+    .chart__header--account-data > .chart__header--total{
       color: $white;
+      font-size: $textXxl-chart;
     }
-    .chart__header-account-data > * {
-      margin-right: 40px;
+    .chart__header--account-data > .chart__header--total{
+      color: $white;
+      font-size: $textXxl-chart;
+    }
+    .chart__header--account-data > * {
+      margin-right: 30px;
       display: flex;
       align-items: center;
-      justify-content: space-around;
-      height: 100%;
-      width: 20%;
       img {
         width: 10px;
+        height: auto;
       }
+      .data {
+        display: flex;
+        align-items: center;
+        h4 {
+          &.down {
+            color: $youtube;
+          }
+        }
+      }
+      
     }
   }
 
-  .chart-container {
+  .chart__container {
+    span {
+      color: $desaturated-blue;
+      font-size: $textMd;
+    }
     background-color: $very-dark-blue;
     position: relative;
-    padding: 0 65px 45px 65px;
+    padding: 20px 50px 50px 50px;
     margin: auto;
     height: 65%;
     width: 100%;
     border-radius: 15px;
+    canvas {
+      margin-top: 20px;
+    }
   }
 }
 
@@ -105,18 +123,15 @@
   .modal-container{
     .chart__header{
       padding: 25px 25px 0 25px;
-      .chart__header-account-data {
-        align-items: start;
-        justify-content: space-around;
-
+      .chart__header--account-data {
+        flex-direction: column;
       }
-      .chart__header-account-data > *{
-        width: 30%;
+      .chart__header--account-data > *{
         margin: 0;
+        .data {
+          min-width: 100px;
+        }
       }
-    }
-    .chart-container{
-      padding: 0 25px 35px 25px;
     }
   }
 }
@@ -125,17 +140,14 @@
   .modal-container{
     .chart__header{
       padding: 25px 25px 0 25px;
-      .chart__header-account-data {
-        flex-direction: column;
-      }
-      .chart__header-account-data > *{
+      .chart__header--account-data > *{
         width: 100%;
+        justify-content: start;
         margin: 0;
       }
     }
-
     .chart-container{
-      padding: 0 25px 35px 25px;
+      padding: 35px;
     }
   }
 }

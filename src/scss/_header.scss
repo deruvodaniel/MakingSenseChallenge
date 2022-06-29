@@ -40,6 +40,12 @@
         border-radius: 100%;
         transition: all ease-in-out .2s;
       }
+      &.active {
+        .color-mode__switch--circle{
+          transform: translateX(20px);
+          background-color: $white
+        }
+      }
       &:hover {
         cursor: pointer;
         filter: brightness(1.3);
@@ -50,7 +56,7 @@
 
 @include mobileScreen {
   .header {
-    padding: 20px 0;
+    padding: 40px 0;
     .title{
       h1 {
         font-size: $textMd;
