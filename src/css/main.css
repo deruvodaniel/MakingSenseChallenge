@@ -24,7 +24,7 @@ body {
   body .container {
     display: flex;
     flex-direction: column;
-    padding: 0 165px;
+    padding: 0 165px 65px 165px;
     height: 100%; }
   body .overlay {
     width: 100%;
@@ -39,7 +39,7 @@ body {
   body .split-background {
     height: 15%; }
   body .container {
-    padding: 0 80px; } }
+    padding: 0 80px 40px 80px; } }
 
 @media screen and (max-width: 576px) {
   body .container {
