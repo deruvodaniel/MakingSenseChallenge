@@ -41,7 +41,7 @@ body {
 
 @media screen and (max-width: 576px) {
   body .split-background {
-    height: 20%; }
+    height: 25%; }
   body .container {
     padding: 0 40px 40px 40px; } }
 
