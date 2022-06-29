@@ -81,6 +81,9 @@ body {
 
 @include mobileScreen {
   body {
+    .split-background{
+      height: 20%;
+    }
     .container{
       padding: 0 40px 40px 40px;
     }
