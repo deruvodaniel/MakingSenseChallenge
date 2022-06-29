@@ -20,17 +20,30 @@ const data = {
     boxWidth: 225,
     label: 'New Followers',
     backgroundColor: 'hsl(243, 51%, 70%)',
+    borderColor: 'hsl(243, 51%, 70%)',
     pointBackgroundColor: `${dotColor}`,
     pointBorderColor: 'hsl(243, 51%, 70%)',
     data: [4, 3, 2, 6, 8, 9, 10, 9, 10, 12, 12],
-    tension: 0.3
+    tension: 0.5
   }]
 };
+
+const labelTooltip = (tooltipItems) => {
+  return '';
+}
+const colorTooltip = (tooltipItems) => {
+  return 'hsl(243, 51%, 70%)';
+}
 
 var options = {
   plugins: {
     tooltip: {
-      backgroundColor: `${!dotColor}`,
+      backgroundColor: `${dotColor}`,
+      displayColors: false,
+      callbacks: {
+        title: labelTooltip,
+        labelTextColor: colorTooltip,
+      }
     },
     legend: {
       display: false,
