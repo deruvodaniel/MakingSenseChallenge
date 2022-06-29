@@ -295,7 +295,7 @@ body {
       grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); }
       .overview .overview__list .overview__card .overview__card-group .overview__sm--card {
         padding: 15px;
-        height: fit-content; } }
+        height: 80px; } }
 
 .modal-container {
   width: 80%;
