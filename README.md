@@ -1,5 +1,13 @@
 # UX Developer Challenge - Social media dashboard
 
+# Install Dependencies
+
+npm install
+
+# Run watcher
+
+npm run watch-css
+
 ## The challenge
 
 The client has requested you to build out this Social Media Dashboard and get it looking as close to the design as possible keeping in mind simplicity and ease-of-use.
