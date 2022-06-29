@@ -70,9 +70,6 @@ body {
 
 @include mediumScreen {
   body {
-    .split-background{
-      height: 15%;
-    }
     .container{
       padding: 0 80px 40px 80px;
     }

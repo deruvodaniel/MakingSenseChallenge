@@ -36,8 +36,6 @@ body {
     display: none; }
 
 @media screen and (max-width: 992px) {
-  body .split-background {
-    height: 15%; }
   body .container {
     padding: 0 80px 40px 80px; } }
 

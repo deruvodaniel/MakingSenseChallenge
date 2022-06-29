@@ -209,13 +209,14 @@ chartModal.addEventListener('click', (e) => {
 const themeElements = document.querySelectorAll('.theme');
 const toggle = document.querySelector('.color-mode__switch');
 const circle = document.querySelector('.color-mode__switch--circle');
-let darkMode = true;
+let darkMode = localStorage.getItem('dark-mode');
 
 toggle.addEventListener('click', (e) => {
   e.preventDefault()
   e.stopPropagation()
   toggle.classList.toggle('active')
   darkMode = !darkMode;
+  location.reload();
 
   if (!darkMode) {
     localStorage.setItem('dark-mode', 'false');
@@ -235,12 +236,14 @@ toggle.addEventListener('click', (e) => {
 });
 
 if (localStorage.getItem('dark-mode') === 'false') {
+  darkMode = false;
   document.querySelector("body > div.container > header > div.color-mode > span").textContent = 'Light Mode'
   themeElements.forEach((item) => {
     item.classList.add('theme--light');
   });
   toggle.classList.add('active')
 } else {
+  darkMode = true;
   document.querySelector("body > div.container > header > div.color-mode > span").textContent = 'Dark Mode'
   themeElements.forEach((item) => {
     item.classList.remove('theme--light');
